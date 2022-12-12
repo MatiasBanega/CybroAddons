@@ -150,7 +150,7 @@ class DynamicFields(models.Model):
                     '<?xml version="1.0"?>'
                     '<data>'
                     '''<xpath expr="//field[@name='state']" position="before">'''
-                    '''<field name="%s"/>'''
+                    '''<field name="%s" optional="show"/>'''
                     '''</xpath>'''
                     '''</data>''') % (self.name)
                 self.tree_view_id = self.env['ir.ui.view'].sudo().create({
@@ -207,3 +207,11 @@ class DynamicFields(models.Model):
             else:
                 return {'domain': {'widget': [('id', '=', False)]}}
         return {'domain': {'widget': [('id', '=', False)]}}
+
+    def unlink(self):
+        if self.form_view_id:
+            self.form_view_id.active = False
+        if self.tree_view_id:
+            self.tree_view_id.active = False
+        res = super(DynamicFields, self).unlink()
+        return res
