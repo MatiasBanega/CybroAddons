@@ -21,7 +21,7 @@
 #############################################################################
 {
     'name': 'Agriculture Management In Odoo',
-    'version': '15.0.1.0.0',
+    'version': '15.0.2.0.0',
     'summary': 'Agriculture Management In Odoo',
     'description': """Agriculture Management In Odoo""",
     'category': 'Productivity',
@@ -44,6 +44,7 @@
         'report/pest_report_template.xml',
         'report/crop_vehicle_report.xml',
         'report/crop_animal_report.xml',
+        'report/crop_animal.xml',
         'wizard/crop_report_wiz.xml',
         'wizard/pest_report_wiz.xml',
         'views/menu_action.xml',
